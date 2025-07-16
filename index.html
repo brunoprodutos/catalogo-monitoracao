@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Monitorable Units AWS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left img {
+            height: 40px;
+        }
+
+        .header-right img {
+            height: 60px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .main-title-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .main-title-section h1 {
+            font-size: 2.5rem;
+            color: #11713F;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-title-section p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .tier-essential-badge {
+            background: #F1A22D;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .intro-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #F1A22D;
+        }
+
+        .intro-section h2 {
+            color: #11713F;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: #F8F8F8;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(17, 113, 63, 0.3);
+        }
+
+        .definition-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F1A22D 0%, #FFB84D 50%, #F1A22D 100%);
+        }
+
+        .definition-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(241, 162, 45, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .definition-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            color: #F1A22D;
+            font-weight: 800;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .definition-box h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #F1A22D 50%, transparent 100%);
+            border-radius: 2px;
+        }
+
+        .characteristics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .characteristic-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(241, 162, 45, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .characteristic-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #F1A22D 0%, #FFB84D 100%);
+            transition: width 0.3s ease;
+        }
+
+        .characteristic-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(241, 162, 45, 0.2);
+            border-color: rgba(241, 162, 45, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .characteristic-item:hover::before {
+            width: 6px;
+        }
+
+        .characteristic-item:hover .characteristic-icon {
+            transform: scale(1.1);
+        }
+
+        .characteristic-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(241, 162, 45, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(241, 162, 45, 0.4);
+            position: relative;
+        }
+
+        .characteristic-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #E0E0E0;
+        }
+
+        .characteristic-title {
+            color: #F1A22D;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .characteristic-description {
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        /* Calculadora de Custos */
+        .calculator-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #11713F;
+        }
+
+        .calculator-section h2 {
+            color: #11713F;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .tier-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .tier-toggle {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            background: #E0E0E0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tier-toggle.pro {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+        }
+
+        .tier-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 92px;
+            height: 42px;
+            background: white;
+            border-radius: 21px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #11713F;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tier-toggle.pro .tier-slider {
+            transform: translateX(104px);
+            color: #11713F;
+        }
+
+        .tier-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .tier-label {
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .tier-toggle:not(.pro) .tier-label.essential {
+            color: transparent;
+        }
+
+        .tier-toggle.pro .tier-label.pro {
+            color: transparent;
+        }
+
+        .tier-toggle:not(.pro) .tier-label.pro {
+            color: white;
+        }
+
+        .tier-toggle.pro .tier-label.essential {
+            color: white;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .calculator-column h3 {
+            color: #11713F;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-group {
+            margin-bottom: 2rem;
+        }
+
+        .feature-group h4 {
+            color: #11713F;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #f8f9fa;
+        }
+
+        .feature-item input[type="checkbox"] {
+            margin-right: 0.8rem;
+            transform: scale(1.2);
+        }
+
+        .feature-item.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .feature-item.always-included {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+        }
+
+        .slider-group {
+            margin-bottom: 2rem;
+        }
+
+        .slider-group label {
+            display: block;
+            color: #11713F;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-container {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #E0E0E0;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #11713F;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #11713F;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-value {
+            text-align: center;
+            font-weight: 700;
+            color: #11713F;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-display {
+            background: linear-gradient(135deg, #11713F 0%, #0C502C 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .price-display h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #F1A22D;
+        }
+
+        .price-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .price-breakdown {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .price-breakdown h4 {
+            color: #F1A22D;
+            margin-bottom: 1rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            padding-top: 0.8rem;
+            border-top: 2px solid #F1A22D;
+        }
+
+        .consultation-notice {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: #E7E7E7;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-header img {
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .category-header h2 {
+            color: #0C502C;
+            font-size: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #F1A22D;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            color: #11713F;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .mus-title {
+            color: #11713F;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .mus-list {
+            list-style: none;
+        }
+
+        .mus-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #F1A22D;
+            transition: background 0.3s ease;
+        }
+
+        .mus-list li:hover {
+            background: #e9ecef;
+        }
+
+        .mu-name {
+            font-weight: 600;
+            color: #11713F;
+        }
+
+        .mu-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        .mu-metrics {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        .footer {
+            background: #11713F;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .header-left {
+                margin-bottom: 1rem;
+            }
+
+            .main-title-section h1 {
+                font-size: 2rem;
+            }
+
+            .main-title-section p {
+                font-size: 1rem;
+            }
+
+            .tier-essential-badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .intro-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .intro-section p {
+                font-size: 1rem;
+            }
+
+            .definition-box {
+                padding: 1.5rem;
+            }
+
+            .definition-box h3 {
+                font-size: 1.3rem;
+                letter-spacing: 1px;
+            }
+
+            .characteristics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .characteristic-item {
+                padding: 1.2rem;
+            }
+
+            .characteristic-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .characteristic-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .characteristic-title {
+                font-size: 1rem;
+            }
+
+            .characteristic-description {
+                font-size: 0.9rem;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tier-toggle {
+                width: 180px;
+                height: 45px;
+            }
+
+            .tier-slider {
+                width: 82px;
+                height: 37px;
+            }
+
+            .tier-toggle.pro .tier-slider {
+                transform: translateX(94px);
+            }
+
+            .price-value {
+                font-size: 2.5rem;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .category-header img {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .category-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1rem;
+            }
+
+            .service-title {
+                font-size: 1.1rem;
+            }
+
+            .service-description {
+                font-size: 0.85rem;
+            }
+
+            .mus-title {
+                font-size: 1rem;
+            }
+
+            .mus-list li {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .mu-name {
+                font-size: 0.9rem;
+            }
+
+            .mu-description,
+            .mu-metrics {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-left img {
+                height: 30px;
+            }
+
+            .header-right img {
+                height: 50px;
+            }
+
+            .main-title-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-title-section p {
+                font-size: 0.9rem;
+            }
+
+            .tier-essential-badge {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.8rem;
+            }
+
+            .intro-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .intro-section p {
+                font-size: 0.9rem;
+            }
+
+            .category-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .definition-box {
+                padding: 1.2rem;
+            }
+
+            .definition-box h3 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .characteristic-item {
+                padding: 1rem;
+            }
+
+            .characteristic-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .characteristic-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .characteristic-title {
+                font-size: 0.95rem;
+            }
+
+            .characteristic-description {
+                font-size: 0.85rem;
+            }
+
+            .tier-toggle {
+                width: 160px;
+                height: 40px;
+            }
+
+            .tier-slider {
+                width: 72px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+
+            .tier-toggle.pro .tier-slider {
+                transform: translateX(84px);
+            }
+
+            .price-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="assets/images/logo-darede-white.png" alt="Logo Darede">
+        </div>
+        <div class="header-right">
+            <img src="assets/images/selo-premier.svg" alt="Selo Parceiro Premier AWS">
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="main-title-section">
+            <h1>Catálogo de Monitorable Units AWS</h1>
+            <p>Tier Essential - Serviços Core para Monitoramento de Infraestrutura</p>
+            <span class="tier-essential-badge">Tier Essential</span>
+        </section>
+
+        <section class="intro-section">
+            <h2>O que são Monitorable Units (M.U.)?</h2>
+            <p>Uma <span class="highlight">Monitorable Unit (M.U.)</span> é qualquer unidade de monitoramento na infraestrutura que precisa ser acompanhada para garantir performance, disponibilidade e cumprimento de SLA.</p>
+            
+            <div class="definition-box">
+                <h3>Características Principais</h3>
+                <div class="characteristics-grid">
+                    <div class="characteristic-item">
+                        <div class="characteristic-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </div>
+                        <div class="characteristic-title">Identificável</div>
+                        <div class="characteristic-description">Possui uma identidade única dentro do ambiente AWS</div>
+                    </div>
+                    <div class="characteristic-item">
+                        <div class="characteristic-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div class="characteristic-title">Configurável</div>
+                        <div class="characteristic-description">Permite aplicação de configurações específicas de monitoramento</div>
+                    </div>
+                    <div class="characteristic-item">
+                        <div class="characteristic-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                        </div>
+                        <div class="characteristic-title">Gerador de Observabilidade</div>
+                        <div class="characteristic-description">Emite métricas, logs e eventos</div>
+                    </div>
+                    <div class="characteristic-item">
+                        <div class="characteristic-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V16h-2.67v2.09c-2.84-.48-5.09-2.8-5.42-5.66h2.95v-2h-2.95c.33-2.86 2.58-5.18 5.42-5.66V6.91h2.67V4.82c2.84.48 5.09 2.8 5.42 5.66h-2.95v2h2.95c-.33 2.86-2.58 5.18-5.42 5.66z"/>
+                            </svg>
+                        </div>
+                        <div class="characteristic-title">Unidade de Cobrança</div>
+                        <div class="characteristic-description">Serve como base para precificação do serviço de monitoramento</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculadora de Custos -->
+        <section class="calculator-section">
+            <h2>Calculadora de Custos</h2>
+            
+            <div class="tier-selector">
+                <div class="tier-toggle" id="tierToggle">
+                    <div class="tier-slider">Essential</div>
+                    <div class="tier-labels">
+                        <span class="tier-label essential">Essential</span>
+                        <span class="tier-label pro">Pro</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="calculator-column">
+                    <h3>Recursos e Features</h3>
+                    
+                    <div class="feature-group">
+                        <h4>Setup Padrão (Sempre Incluído)</h4>
+                        <div class="feature-item always-included">
+                            <input type="checkbox" checked disabled>
+                            <span>CloudWatch + Zabbix</span>
+                        </div>
+                    </div>
+
+                    <div class="feature-group">
+                        <h4>Recursos Avançados (Tier Pro)</h4>
+                        <div class="feature-item" id="catalogoExtendido">
+                            <input type="checkbox" id="catalogoExtendidoCheck">
+                            <span>Catálogo Estendido</span>
+                        </div>
+                        <div class="feature-item" id="metricasPersonalizadas">
+                            <input type="checkbox" id="metricasPersonalizadasCheck">
+                            <span>Métricas Personalizadas</span>
+                        </div>
+                        <div class="feature-item" id="ferramentasAPM">
+                            <input type="checkbox" id="ferramentasAPMCheck">
+                            <span>Ferramentas APM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-column">
+                    <h3>Configurações</h3>
+                    
+                    <div class="slider-group">
+                        <label for="muSlider">Monitorable Units (M.U.)</label>
+                        <div class="slider-container">
+                            <input type="range" id="muSlider" class="slider" min="1" max="600" value="30">
+                        </div>
+                        <div class="slider-value" id="muValue">30 M.U.</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <label for="horasSlider">Horas de Atuação (24x7)</label>
+                        <div class="slider-container">
+                            <input type="range" id="horasSlider" class="slider" min="0" max="60" value="10">
+                        </div>
+                        <div class="slider-value" id="horasValue">10 horas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-display">
+                <h3 id="tierDisplay">Tier Essential</h3>
+                <div class="price-value" id="totalPrice">R$ 16.700</div>
+                
+                <div class="price-breakdown">
+                    <h4>Detalhamento dos Custos</h4>
+                    <div class="price-item">
+                        <span>Tier Base:</span>
+                        <span id="tierPrice">R$ 4.500</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Setup (12x):</span>
+                        <span id="setupPrice">R$ 666,67</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Horas de Atuação:</span>
+                        <span id="hoursPrice">R$ 4.200</span>
+                    </div>
+                    <div class="price-item">
+                        <span><strong>Total:</strong></span>
+                        <span id="totalPriceBreakdown"><strong>R$ 9.366,67</strong></span>
+                    </div>
+                </div>
+
+                <div class="consultation-notice" id="consultationNotice" style="display: none;">
+                    <strong>⚠️ Consulta Necessária</strong><br>
+                    Alguns recursos selecionados requerem consulta personalizada.
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo dinâmico será inserido aqui -->
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Darede. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Dados de precificação
+        const pricingData = [
+            {
+                "limite_ics": 50,
+                "preco_essent": 4500.00,
+                "preco_pro": 7800.00,
+                "horas_sustentacao": 8,
+                "setup_padrao": 8000.00
+            },
+            {
+                "limite_ics": 100,
+                "preco_essent": 6000.00,
+                "preco_pro": 10800.00,
+                "horas_sustentacao": 10,
+                "setup_padrao": 14000.00
+            },
+            {
+                "limite_ics": 200,
+                "preco_essent": 10000.00,
+                "preco_pro": 15500.00,
+                "horas_sustentacao": 10,
+                "setup_padrao": 22000.00
+            },
+            {
+                "limite_ics": 400,
+                "preco_essent": 16000.00,
+                "preco_pro": 22000.00,
+                "horas_sustentacao": 10,
+                "setup_padrao": 30000.00
+            },
+            {
+                "limite_ics": 600,
+                "preco_essent": 24000.00,
+                "preco_pro": 33000.00,
+                "horas_sustentacao": 15,
+                "setup_padrao": 42000.00
+            }
+        ];
+
+        // Dados do catálogo
+        const data = [
+            {
+                "categoria": "Analytics",
+                "servico_aws": "Amazon Athena",
+                "descricao": "Consulta dados no S3 usando SQL",
+                "recurso_monitoravel": "Consulta Athena",
+                "metricas_chave": ["Consultas falhas", "Dados verificados"]
+            },
+            {
+                "categoria": "Analytics",
+                "servico_aws": "Amazon Kinesis",
+                "descricao": "Processamento de streams em tempo real",
+                "recurso_monitoravel": "Kinesis Stream",
+                "metricas_chave": ["Dados recebidos", "Atraso no processamento"]
+            },
+            {
+                "categoria": "Analytics",
+                "servico_aws": "Amazon OpenSearch",
+                "descricao": "Busca e análise de dados",
+                "recurso_monitoravel": "Domínio OpenSearch",
+                "metricas_chave": ["Saúde do cluster", "Uso de CPU", "Espaço em disco"]
+            },
+            {
+                "categoria": "Analytics",
+                "servico_aws": "Amazon Redshift",
+                "descricao": "Data warehouse em nuvem",
+                "recurso_monitoravel": "Cluster Redshift",
+                "metricas_chave": ["Uso de CPU", "Consultas ativas", "Espaço em disco"]
+            },
+            {
+                "categoria": "Analytics",
+                "servico_aws": "AWS Glue",
+                "descricao": "Serviço ETL (Extração, Transformação, Carga)",
+                "recurso_monitoravel": "Job Glue",
+                "metricas_chave": ["Execuções bem-sucedidas", "Tempo de execução"]
+            },
+            {
+                "categoria": "Armazenamento",
+                "servico_aws": "Amazon EFS",
+                "descricao": "Sistema de arquivos elástico",
+                "recurso_monitoravel": "Sistema de Arquivos EFS",
+                "metricas_chave": ["Espaço usado", "Operações de leitura/escrita"]
+            },
+            {
+                "categoria": "Armazenamento",
+                "servico_aws": "Amazon S3",
+                "descricao": "Armazenamento de objetos",
+                "recurso_monitoravel": "Bucket S3",
+                "metricas_chave": ["Tamanho total", "Número de objetos", "Solicitações"]
+            },
+            {
+                "categoria": "Banco de Dados",
+                "servico_aws": "Amazon DynamoDB",
+                "descricao": "Banco de dados NoSQL serverless",
+                "recurso_monitoravel": "Tabela DynamoDB",
+                "metricas_chave": ["Solicitações bem-sucedidas", "Solicitações limitadas"]
+            },
+            {
+                "categoria": "Banco de Dados",
+                "servico_aws": "Amazon RDS",
+                "descricao": "Banco de dados relacional gerenciado",
+                "recurso_monitoravel": "Instância RDS",
+                "metricas_chave": ["Uso de CPU", "Conexões ativas", "Latência de consultas"]
+            },
+            {
+                "categoria": "Banco de Dados",
+                "servico_aws": "Amazon RDS",
+                "descricao": "Banco de dados relacional gerenciado",
+                "recurso_monitoravel": "Banco de Dados Aurora",
+                "metricas_chave": ["Replicação", "Transações pendentes"]
+            },
+            {
+                "categoria": "Computing",
+                "servico_aws": "Amazon EC2",
+                "descricao": "Máquinas virtuais escaláveis na nuvem",
+                "recurso_monitoravel": "Instância EC2",
+                "metricas_chave": ["Uso de CPU", "Memória livre", "Tráfego de rede", "Operações de disco"]
+            },
+            {
+                "categoria": "Computing",
+                "servico_aws": "AWS Auto Scaling",
+                "descricao": "Ajusta capacidade automaticamente",
+                "recurso_monitoravel": "Auto Scaling Group",
+                "metricas_chave": ["Instâncias em execução", "Escalonamentos realizados"]
+            },
+            {
+                "categoria": "Computing",
+                "servico_aws": "AWS Elastic Beanstalk",
+                "descricao": "Implanta e escala aplicações web",
+                "recurso_monitoravel": "Ambiente Beanstalk",
+                "metricas_chave": ["Saúde do ambiente", "Instâncias com problemas"]
+            },
+            {
+                "categoria": "Computing",
+                "servico_aws": "AWS Lambda",
+                "descricao": "Executa código sem gerenciar servidores",
+                "recurso_monitoravel": "Função Lambda",
+                "metricas_chave": ["Execuções", "Falhas", "Tempo de execução", "Uso de memória"]
+            },
+            {
+                "categoria": "Containers",
+                "servico_aws": "Amazon ECS",
+                "descricao": "Orquestração de contêineres Docker",
+                "recurso_monitoravel": "Cluster ECS",
+                "metricas_chave": ["Uso de CPU", "Uso de memória"]
+            },
+            {
+                "categoria": "Containers",
+                "servico_aws": "Amazon ECS",
+                "descricao": "Orquestração de contêineres Docker",
+                "recurso_monitoravel": "Serviço ECS",
+                "metricas_chave": ["Tarefas em execução", "Tarefas pendentes"]
+            },
+            {
+                "categoria": "Containers",
+                "servico_aws": "Amazon EKS",
+                "descricao": "Kubernetes gerenciado na AWS",
+                "recurso_monitoravel": "Cluster EKS",
+                "metricas_chave": ["Saúde dos nós", "Tráfego de rede entre pods"]
+            },
+            {
+                "categoria": "Containers",
+                "servico_aws": "Amazon EKS",
+                "descricao": "Kubernetes gerenciado na AWS",
+                "recurso_monitoravel": "Grupo de Nós EKS",
+                "metricas_chave": ["Disponibilidade", "Uso de recursos"]
+            },
+            {
+                "categoria": "Integration",
+                "servico_aws": "Amazon MQ",
+                "descricao": "Mensageria gerenciada com protocolos abertos",
+                "recurso_monitoravel": "Broker Amazon MQ",
+                "metricas_chave": ["Conexões ativas", "Mensagens pendentes"]
+            },
+            {
+                "categoria": "Integration",
+                "servico_aws": "Amazon SNS",
+                "descricao": "Serviço de notificações push",
+                "recurso_monitoravel": "Tópico SNS",
+                "metricas_chave": ["Mensagens enviadas", "Mensagens falhas"]
+            },
+            {
+                "categoria": "Integration",
+                "servico_aws": "Amazon SQS",
+                "descricao": "Fila de mensagens gerenciada",
+                "recurso_monitoravel": "Fila SQS",
+                "metricas_chave": ["Mensagens pendentes", "Tempo de espera médio"]
+            },
+            {
+                "categoria": "Integration",
+                "servico_aws": "AWS Step Functions",
+                "descricao": "Orquestração de workflows",
+                "recurso_monitoravel": "State Machine",
+                "metricas_chave": ["Execuções bem-sucedidas", "Execuções falhas"]
+            },
+            {
+                "categoria": "Network and Content Delivery",
+                "servico_aws": "Amazon API Gateway",
+                "descricao": "Gerenciamento de APIs",
+                "recurso_monitoravel": "API REST",
+                "metricas_chave": ["Chamadas", "Latência", "Erros 4xx/5xx"]
+            },
+            {
+                "categoria": "Network and Content Delivery",
+                "servico_aws": "Amazon CloudFront",
+                "descricao": "Rede de entrega de conteúdo global",
+                "recurso_monitoravel": "Distribuição CloudFront",
+                "metricas_chave": ["Solicitações", "Taxa de erros", "Taxa de acertos no cache"]
+            },
+            {
+                "categoria": "Network and Content Delivery",
+                "servico_aws": "Amazon Route 53",
+                "descricao": "DNS e registro de domínios",
+                "recurso_monitoravel": "Health Check",
+                "metricas_chave": ["Status (Saudável/Não saudável)", "Tempo de resposta"]
+            },
+            {
+                "categoria": "Network and Content Delivery",
+                "servico_aws": "Elastic Load Balancing",
+                "descricao": "Distribui tráfego entre instâncias",
+                "recurso_monitoravel": "ALB",
+                "metricas_chave": ["Solicitações", "Tempo de resposta", "Erros 5xx"]
+            },
+            {
+                "categoria": "Network and Content Delivery",
+                "servico_aws": "Elastic Load Balancing",
+                "descricao": "Distribui tráfego entre instâncias",
+                "recurso_monitoravel": "NLB",
+                "metricas_chave": ["Conexões ativas", "Tráfego processado"]
+            },
+            {
+                "categoria": "Segurança",
+                "servico_aws": "AWS WAF",
+                "descricao": "Firewall para aplicações web",
+                "recurso_monitoravel": "Web ACL",
+                "metricas_chave": ["Solicitações bloqueadas", "Solicitações permitidas"]
+            }
+        ];
+
+        const categoryIcons = {
+            "Analytics": "assets/images/Analytics.svg",
+            "Armazenamento": "assets/images/Storage.svg",
+            "Banco de Dados": "assets/images/BancoDeDados.svg",
+            "Computing": "assets/images/Computing.svg",
+            "Containers": "assets/images/containers.svg",
+            "Integration": "assets/images/Integration.svg",
+            "Network and Content Delivery": "assets/images/Network&ContentDelivery.svg",
+            "Segurança": "assets/images/security.svg"
+        };
+
+        // Estado da calculadora
+        let currentTier = 'essential';
+        let currentMUs = 30;
+        let currentHours = 10;
+        let advancedFeatures = {
+            catalogoExtendido: false,
+            metricasPersonalizadas: false,
+            ferramentasAPM: false
+        };
+
+        // Elementos DOM
+        const tierToggle = document.getElementById('tierToggle');
+        const muSlider = document.getElementById('muSlider');
+        const horasSlider = document.getElementById('horasSlider');
+        const muValue = document.getElementById('muValue');
+        const horasValue = document.getElementById('horasValue');
+        const catalogoExtendidoCheck = document.getElementById('catalogoExtendidoCheck');
+        const metricasPersonalizadasCheck = document.getElementById('metricasPersonalizadasCheck');
+        const ferramentasAPMCheck = document.getElementById('ferramentasAPMCheck');
+
+        // Função para encontrar a faixa de preço
+        function findPricingTier(mus) {
+            return pricingData.find(tier => mus <= tier.limite_ics) || null;
+        }
+
+        // Função para calcular preço
+        function calculatePrice() {
+            const pricingTier = findPricingTier(currentMUs);
+            
+            if (!pricingTier) {
+                // Mais de 600 MUs - sob consulta
+                updatePriceDisplay(null, true);
+                return;
+            }
+
+            let tierPrice, setupPrice, hoursIncluded = 0;
+            
+            if (currentTier === 'essential') {
+                tierPrice = pricingTier.preco_essent;
+                setupPrice = pricingTier.setup_padrao;
+            } else {
+                tierPrice = pricingTier.preco_pro;
+                setupPrice = 0; // Setup incluso no Pro
+                hoursIncluded = pricingTier.horas_sustentacao;
+            }
+
+            const extraHours = Math.max(0, currentHours - hoursIncluded);
+            const hoursPrice = extraHours * 420;
+            const totalPrice = tierPrice + (setupPrice / 12) + hoursPrice;
+
+            const needsConsultation = Object.values(advancedFeatures).some(feature => feature);
+
+            updatePriceDisplay({
+                tierPrice,
+                setupPrice,
+                hoursPrice,
+                totalPrice,
+                hoursIncluded,
+                extraHours
+            }, needsConsultation);
+        }
+
+        // Função para atualizar display de preço
+        function updatePriceDisplay(prices, needsConsultation) {
+            const tierDisplay = document.getElementById('tierDisplay');
+            const totalPrice = document.getElementById('totalPrice');
+            const tierPriceEl = document.getElementById('tierPrice');
+            const setupPriceEl = document.getElementById('setupPrice');
+            const hoursPriceEl = document.getElementById('hoursPrice');
+            const totalPriceBreakdown = document.getElementById('totalPriceBreakdown');
+            const consultationNotice = document.getElementById('consultationNotice');
+
+            tierDisplay.textContent = `Tier ${currentTier === 'essential' ? 'Essential' : 'Pro'}`;
+
+            if (!prices) {
+                totalPrice.textContent = 'Sob Consulta';
+                tierPriceEl.textContent = 'Sob Consulta';
+                setupPriceEl.textContent = 'Sob Consulta';
+                hoursPriceEl.textContent = 'Sob Consulta';
+                totalPriceBreakdown.innerHTML = '<strong>Sob Consulta</strong>';
+                consultationNotice.style.display = 'block';
+                consultationNotice.innerHTML = '<strong>⚠️ Consulta Necessária</strong><br>Mais de 600 M.U. requer consulta personalizada.';
+                return;
+            }
+
+            totalPrice.textContent = `R$ ${prices.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            tierPriceEl.textContent = `R$ ${prices.tierPrice.toLocaleString('pt-BR')}`;
+            
+            if (currentTier === 'essential') {
+                setupPriceEl.textContent = `R$ ${(prices.setupPrice / 12).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            } else {
+                setupPriceEl.textContent = 'Incluso';
+            }
+
+            if (prices.extraHours > 0) {
+                hoursPriceEl.textContent = `R$ ${prices.hoursPrice.toLocaleString('pt-BR')} (${prices.extraHours}h excedentes)`;
+            } else if (currentTier === 'pro' && currentHours <= prices.hoursIncluded) {
+                hoursPriceEl.textContent = `Incluído (${currentHours}h de ${prices.hoursIncluded}h)`;
+            } else {
+                hoursPriceEl.textContent = `R$ ${prices.hoursPrice.toLocaleString('pt-BR')}`;
+            }
+
+            totalPriceBreakdown.innerHTML = `<strong>R$ ${prices.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>`;
+
+            if (needsConsultation) {
+                consultationNotice.style.display = 'block';
+                consultationNotice.innerHTML = '<strong>⚠️ Consulta Necessária</strong><br>Recursos avançados selecionados requerem consulta para personalização.';
+            } else {
+                consultationNotice.style.display = 'none';
+            }
+        }
+
+        // Event Listeners
+        tierToggle.addEventListener('click', () => {
+            if (currentTier === 'essential') {
+                currentTier = 'pro';
+                tierToggle.classList.add('pro');
+                tierToggle.querySelector('.tier-slider').textContent = 'Pro';
+                
+                // Habilitar recursos avançados
+                document.getElementById('catalogoExtendido').classList.remove('disabled');
+                document.getElementById('metricasPersonalizadas').classList.remove('disabled');
+                document.getElementById('ferramentasAPM').classList.remove('disabled');
+                catalogoExtendidoCheck.disabled = false;
+                metricasPersonalizadasCheck.disabled = false;
+                ferramentasAPMCheck.disabled = false;
+            } else {
+                currentTier = 'essential';
+                tierToggle.classList.remove('pro');
+                tierToggle.querySelector('.tier-slider').textContent = 'Essential';
+                
+                // Desabilitar e desmarcar recursos avançados
+                document.getElementById('catalogoExtendido').classList.add('disabled');
+                document.getElementById('metricasPersonalizadas').classList.add('disabled');
+                document.getElementById('ferramentasAPM').classList.add('disabled');
+                catalogoExtendidoCheck.disabled = true;
+                metricasPersonalizadasCheck.disabled = true;
+                ferramentasAPMCheck.disabled = true;
+                catalogoExtendidoCheck.checked = false;
+                metricasPersonalizadasCheck.checked = false;
+                ferramentasAPMCheck.checked = false;
+                
+                advancedFeatures.catalogoExtendido = false;
+                advancedFeatures.metricasPersonalizadas = false;
+                advancedFeatures.ferramentasAPM = false;
+            }
+            calculatePrice();
+        });
+
+        muSlider.addEventListener('input', (e) => {
+            currentMUs = parseInt(e.target.value);
+            muValue.textContent = `${currentMUs} M.U.`;
+            calculatePrice();
+        });
+
+        horasSlider.addEventListener('input', (e) => {
+            currentHours = parseInt(e.target.value);
+            horasValue.textContent = `${currentHours} horas`;
+            calculatePrice();
+        });
+
+        // Event listeners para recursos avançados
+        catalogoExtendidoCheck.addEventListener('change', (e) => {
+            advancedFeatures.catalogoExtendido = e.target.checked;
+            if (e.target.checked && currentTier === 'essential') {
+                currentTier = 'pro';
+                tierToggle.classList.add('pro');
+                tierToggle.querySelector('.tier-slider').textContent = 'Pro';
+                document.getElementById('metricasPersonalizadas').classList.remove('disabled');
+                document.getElementById('ferramentasAPM').classList.remove('disabled');
+                metricasPersonalizadasCheck.disabled = false;
+                ferramentasAPMCheck.disabled = false;
+            }
+            calculatePrice();
+        });
+
+        metricasPersonalizadasCheck.addEventListener('change', (e) => {
+            advancedFeatures.metricasPersonalizadas = e.target.checked;
+            if (e.target.checked && currentTier === 'essential') {
+                currentTier = 'pro';
+                tierToggle.classList.add('pro');
+                tierToggle.querySelector('.tier-slider').textContent = 'Pro';
+                document.getElementById('catalogoExtendido').classList.remove('disabled');
+                document.getElementById('ferramentasAPM').classList.remove('disabled');
+                catalogoExtendidoCheck.disabled = false;
+                ferramentasAPMCheck.disabled = false;
+            }
+            calculatePrice();
+        });
+
+        ferramentasAPMCheck.addEventListener('change', (e) => {
+            advancedFeatures.ferramentasAPM = e.target.checked;
+            if (e.target.checked && currentTier === 'essential') {
+                currentTier = 'pro';
+                tierToggle.classList.add('pro');
+                tierToggle.querySelector('.tier-slider').textContent = 'Pro';
+                document.getElementById('catalogoExtendido').classList.remove('disabled');
+                document.getElementById('metricasPersonalizadas').classList.remove('disabled');
+                catalogoExtendidoCheck.disabled = false;
+                metricasPersonalizadasCheck.disabled = false;
+            }
+            calculatePrice();
+        });
+
+        // Inicializar recursos avançados como desabilitados
+        document.getElementById('catalogoExtendido').classList.add('disabled');
+        document.getElementById('metricasPersonalizadas').classList.add('disabled');
+        document.getElementById('ferramentasAPM').classList.add('disabled');
+        catalogoExtendidoCheck.disabled = true;
+        metricasPersonalizadasCheck.disabled = true;
+        ferramentasAPMCheck.disabled = true;
+
+        // Calcular preço inicial
+        calculatePrice();
+
+        // Gerar catálogo
+        const container = document.querySelector('.container');
+
+        // Group data by category
+        const groupedData = data.reduce((acc, item) => {
+            if (!acc[item.categoria]) {
+                acc[item.categoria] = [];
+            }
+            acc[item.categoria].push(item);
+            return acc;
+        }, {});
+
+        for (const category in groupedData) {
+            const categorySection = document.createElement('section');
+            categorySection.classList.add('category-section');
+
+            const categoryHeader = document.createElement('div');
+            categoryHeader.classList.add('category-header');
+            categoryHeader.innerHTML = `
+                <img src="${categoryIcons[category]}" alt="${category} Icon">
+                <h2>${category}</h2>
+            `;
+            categorySection.appendChild(categoryHeader);
+
+            const servicesGrid = document.createElement('div');
+            servicesGrid.classList.add('services-grid');
+
+            // Group services within each category
+            const servicesInCategory = groupedData[category].reduce((acc, item) => {
+                if (!acc[item.servico_aws]) {
+                    acc[item.servico_aws] = { description: item.descricao, mus: [] };
+                }
+                acc[item.servico_aws].mus.push({
+                    name: item.recurso_monitoravel,
+                    description: item.descricao,
+                    metrics: item.metricas_chave
+                });
+                return acc;
+            }, {});
+
+            for (const serviceName in servicesInCategory) {
+                const serviceData = servicesInCategory[serviceName];
+                const serviceCard = document.createElement('div');
+                serviceCard.classList.add('service-card');
+                serviceCard.innerHTML = `
+                    <div class="service-header">
+                        <h3 class="service-title">${serviceName}</h3>
+                    </div>
+                    <div class="service-description">${serviceData.description}</div>
+                    <h4 class="mus-title">Monitorable Units (M.U.) aplicáveis</h4>
+                    <ul class="mus-list">
+                        ${serviceData.mus.map(mu => `
+                            <li>
+                                <div class="mu-name">${mu.name}</div>
+                                <div class="mu-description">${mu.description}</div>
+                                <div class="mu-metrics">Métricas Chave: ${mu.metrics.join(', ')}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            }
+
+            categorySection.appendChild(servicesGrid);
+            container.appendChild(categorySection);
+        }
+
+        // Reorganizar seções: mover catálogo para depois da definição
+        const catalogSection = document.querySelector('.catalog-section');
+        const definitionSection = document.querySelector('.definition-section');
+        
+        if (catalogSection && definitionSection) {
+            // Inserir catálogo após a definição
+            definitionSection.parentNode.insertBefore(catalogSection, definitionSection.nextSibling);
+        }
+        
+        // Reorganizar características em 2x2
+        const featuresGrid = document.querySelector('.features-grid');
+        if (featuresGrid) {
+            featuresGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            featuresGrid.style.gap = '2rem';
+        }
+    </script>
+</body>
+</html>

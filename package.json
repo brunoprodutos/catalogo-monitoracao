@@ -1,0 +1,14 @@
+{
+  "name": "aws-monitorable-units-catalog",
+  "version": "1.0.0",
+  "description": "Catálogo de Monitorable Units AWS",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 5173",
+    "start": "npx serve .",
+    "build": "echo 'No build step needed for static HTML'"
+  },
+  "keywords": ["aws", "monitoring", "catalog"],
+  "author": "",
+  "license": "MIT"
+}
