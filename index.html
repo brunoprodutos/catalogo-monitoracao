@@ -233,15 +233,28 @@
 
 
 
+        .catalog-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
         .category-section {
             margin-bottom: 3rem;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #F1A22D;
         }
 
         .category-header {
             display: flex;
             align-items: center;
             margin-bottom: 2rem;
-            background: #E7E7E7;
+            background: #f8f9fa;
             padding: 1rem 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -268,14 +281,17 @@
             background: white;
             border-radius: 15px;
             padding: 1.5rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(241, 162, 45, 0.2);
             border-top: 4px solid #F1A22D;
+            margin-bottom: 1rem;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(241, 162, 45, 0.4);
         }
 
         .service-header {
@@ -871,6 +887,10 @@
         // Gerar catálogo
         const container = document.querySelector('.container');
 
+        // Criar container do catálogo
+        const catalogContainer = document.createElement('div');
+        catalogContainer.classList.add('catalog-container');
+        
         // Group data by category
         const groupedData = data.reduce((acc, item) => {
             if (!acc[item.categoria]) {
@@ -932,8 +952,9 @@
             }
 
             categorySection.appendChild(servicesGrid);
-            container.appendChild(categorySection);
+            catalogContainer.appendChild(categorySection);
         }
+        container.appendChild(catalogContainer);
 
         // Reorganizar seções: mover catálogo para depois da definição
         const catalogSection = document.querySelector('.catalog-section');
