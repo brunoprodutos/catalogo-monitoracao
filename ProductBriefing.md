@@ -119,7 +119,14 @@ Precificação baseada em **Unidades Monitoráveis (U.M.)** - qualquer recurso d
 
 ### Tabela de Preços
 
-![1763126197835](image/ProductBriefing/1763126197835.png)
+| Limite U.M. | Essential Recorrente | Essential Setup | Pro Mensal | Pro Setup | Pro horas inclusas |
+| ----------- | -------------------- | --------------- | ---------- | --------- | ------------------ |
+| 20          | 2.500                | 4.000           | 5.400      | Incluso   | 5h                 |
+| 50          | 4.500                | 8.000           | 7.800      | Incluso   | 8h                 |
+| 100         | 6.000                | 14.000          | 10.800     | Incluso   | 10h                |
+| 200         | 10.000               | 22.000          | 15.500     | Incluso   | 10h                |
+| 400         | 16.000               | 30.000          | 22.000     | Incluso   | 10h                |
+| 600         | 24.000               | 42.000          | 33.000     | Incluso   | 15h                |
 
 *Valores sujeitos a customização para volumes maiores*
 
@@ -190,7 +197,7 @@ Horas excedentes: **R$518**
 
 ## 📦 Catálogo de Unidades Monitoráveis
 
-*[Lista completa disponível no catálogo técnico](./index.htm)*
+*[Lista completa disponível no catálogo técnico](https://brunoprodutos.github.io/catalogo-monitoracao/ "Catálogo")*
 
 ---
 
