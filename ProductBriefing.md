@@ -29,10 +29,10 @@ Prover monitoramento proativo e resposta imediata a incidentes, reduzindo o temp
 
 ### Principais Benefícios
 
-- ⏱️ **Redução de até 70% no MTTR** através de ações automatizadas
+- ⏱️ **Redução no MTTR** através de ações automatizadas
 - 🔍 **Visibilidade completa** da infraestrutura em tempo real
-- 👥 **Economia de até 60%** comparado a equipe própria 24x7
-- 📈 **Melhoria contínua** com análise de causa raiz
+- 👥 **Economia** se comparado a equipe própria 24x7
+- 📈 **Melhoria contínua** com gestão de conhecimento e procedimento
 - 🛡️ **Garantia de SLA** com penalidades contratuais
 
 ---
@@ -53,7 +53,7 @@ Prover monitoramento proativo e resposta imediata a incidentes, reduzindo o temp
 
 #### Ideal para:
 
-- Ambientes de produção com criticidade média
+- Ambientes de produção com criticidade média ou alta
 - Empresas em crescimento
 - Orçamentos controlados
 
@@ -74,7 +74,7 @@ Prover monitoramento proativo e resposta imediata a incidentes, reduzindo o temp
 #### Ideal para:
 
 - Infraestruturas mission-critical
-- Operações complexas multi-cloud
+- Operações complexas
 - Empresas com foco em inovação
 
 ---
@@ -86,16 +86,16 @@ Prover monitoramento proativo e resposta imediata a incidentes, reduzindo o temp
 | Criticidade         | Descrição                      | SLA Essential | SLA PRO    |
 | ------------------- | -------------------------------- | ------------- | ---------- |
 | **🔴 HIGH**   | Indisponibilidade total          | 15 minutos    | 15 minutos |
-| **🟡 MEDIUM** | Degradação severa              | 30 minutos    | 30 minutos |
-| **🟢 LOW**    | Impacto operacional gerenciável | 60 minutos    | 60 minutos |
+| **🟡 MEDIUM** | Degradação severa              | 15 minutos    | 15 minutos |
+| **🟢 LOW**    | Impacto operacional gerenciável | 15 minutos    | 15 minutos |
 
 ### Tempos de Atualização
 
 | Criticidade         | Essential | PRO     |
 | ------------------- | --------- | ------- |
-| 🔴 HIGH             | 2 horas   | 1 hora  |
-| **🟡 MEDIUM** | 4 horas   | 2 horas |
-| **🟢 LOW**    | 8 horas   | 4 horas |
+| 🔴 HIGH             | N/A       | 1 hora  |
+| **🟡 MEDIUM** | N/A       | 2 horas |
+| **🟢 LOW**    | N/A       | 4 horas |
 
 ### Penalidades por Descumprimento
 
@@ -123,6 +123,15 @@ Precificação baseada em **Unidades Monitoráveis (U.M.)** - qualquer recurso d
 
 *Valores sujeitos a customização para volumes maiores*
 
+Horas excedentes: **R$518**
+
+## Utilização das horas
+
+* Somente incidentes gerados por alertas
+* Não incluem requisição de serviço
+* Não incluem incidentes que não alarmaram
+* Não acumulam e não transferem
+
 ---
 
 ## 🔧 Como Funciona
@@ -140,7 +149,6 @@ Precificação baseada em **Unidades Monitoráveis (U.M.)** - qualquer recurso d
 
 - **Tudo do Essential, mais:**
 - Integrações com ferramentas APM existentes (Datadog, New Relic)
-- Métricas customizadas avançadas
 - Automações iniciais
 - Workshop de alinhamento
 
@@ -175,11 +183,7 @@ Precificação baseada em **Unidades Monitoráveis (U.M.)** - qualquer recurso d
 - 📈 Análise de tendências e padrões
 - 🎯 Recomendações de otimização (PRO)
 - 📋 Review de incidentes críticos
-
-#### Trimestralmente:
-
-- 🔍 Análise profunda de ambiente (PRO)
-- 💡 Propostas de automação
+- 💡 Propostas de melhorias (PRO)
 - 📚 Atualização de documentação
 
 ---
@@ -239,110 +243,6 @@ Precificação baseada em **Unidades Monitoráveis (U.M.)** - qualquer recurso d
 **Problema**: Recursos limitados para equipe 24x7
 **Solução**: Essential Tier com escalonamento inteligente
 **Resultado**: Economia de 60% vs equipe própria
-
----
-
-## 🎯 Roadmap do Produto
-
-### Q1 2025
-
-- ✅ Lançamento do catálogo de U.M. expandido
-- ✅ Integração com Zabbix 6.0
-- 🔄 Dashboard mobile (em desenvolvimento)
-
-### Q2 2025
-
-- 📅 Integração com ServiceNow
-- 📅 ML para predição de incidentes
-- 📅 Portal self-service para clientes
-
-### Q3-Q4 2025
-
-- 📅 Expansão para Azure e GCP
-- 📅 Certificação ISO 20000
-- 📅 Tier Enterprise com SLA 99.99%
-
----
-
-## 📞 Informações de Contato
-
-### Para Vendas:
-
-- 📧 comercial@darede.com.br
-- 📱 0800-XXX-XXXX
-
-### Suporte Técnico (Clientes):
-
-- 📧 noc@darede.com.br
-- 📱 Linha direta 24x7: (XX) XXXX-XXXX
-
-### Escalação Gerencial:
-
-- 📧 gestao.monitoracao@darede.com.br
-
----
-
-## 📝 Termos e Condições Importantes
-
-### Inclusões:
-
-- ✅ Monitoramento 24x7 conforme tier contratado
-- ✅ Acesso ao dashboard Zabbix
-- ✅ Relatórios mensais
-- ✅ Suporte via canais oficiais
-- ✅ SLA garantido com penalidades
-
-### Exclusões:
-
-- ❌ Desenvolvimento de código customizado
-- ❌ Gestão de mudanças não comunicadas
-- ❌ Recursos fora do catálogo de U.M. (sob consulta)
-- ❌ Hands-on em produção sem aprovação
-
-### Pré-requisitos do Cliente:
-
-- Acesso administrativo aos recursos AWS
-- Documentação atualizada do ambiente
-- Ponto focal designado
-- Canal de comunicação estabelecido
-
----
-
-## 🔒 Segurança e Compliance
-
-### Certificações:
-
-- ISO 27001 (Segurança da Informação)
-- SOC 2 Type II
-- LGPD Compliant
-
-### Práticas de Segurança:
-
-- Acesso baseado em roles (RBAC)
-- Auditoria completa de ações
-- Criptografia em trânsito e repouso
-- Segregação de ambientes por cliente
-
----
-
-## 💪 Por que Darede?
-
-### Nossa História:
-
-- **15+ anos** de experiência em cloud
-- **500+ clientes** atendidos
-- **99.8%** de satisfação do cliente
-- **50+ certificações** técnicas da equipe
-
-### Nosso Compromisso:
-
-> "Não apenas monitoramos sua infraestrutura, nós cuidamos dela como se fosse nossa. Seu sucesso é nosso sucesso."
-
----
-
-*Documento atualizado em: Janeiro 2025*
-*Versão: 1.0*
-*Classificação: Público*
 
 ---
 
